@@ -1,0 +1,109 @@
+.header {
+	display: grid;
+	grid-template-columns: repeat(
+		12,
+		1fr
+	);
+	padding: 16px;
+}
+
+.header .subhead {
+	grid-column-start: 1;
+	grid-column-end: 13;
+}
+
+.header .subhead section {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.header .subhead section h1 {
+	font-size: 1.5em;
+}
+
+.header nav {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+}
+
+.header nav a {
+	color: #000;
+	font-size: 24px;
+}
+
+.grid {
+	display: grid;
+	grid-template-columns: repeat(
+		12,
+		1fr
+	);
+	padding: 16px;
+}
+
+.grid .subgrid {
+	grid-column-start: 1;
+	grid-column-end: 13;
+}
+
+.grid .subgrid .homebody {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	flex-direction: column;
+	gap: 16px;
+	margin-top: 22px;
+}
+
+.homebody strong {
+	font-size: 1.5em;
+	text-decoration: underline;
+}
+
+.grid .buttonsList {
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	flex-direction: column;
+	gap: 12px;
+	width: 100%;
+}
+
+.grid .buttonsList a {
+	background: #000;
+	color: #fff;
+	padding: 15px 30px;
+	border-radius: 6px;
+	font-size: 18px;
+	width: 70%;
+	text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+	.header .subhead {
+		grid-column-start: 2;
+		grid-column-end: 12;
+	}
+
+	.grid .subgrid {
+		grid-column-start: 2;
+		grid-column-end: 12;
+	}
+
+	.grid .subgrid .homebody {
+		justify-content: start;
+		align-items: start;
+	}
+
+	.grid .buttonsList {
+		flex-direction: row;
+		flex-wrap: wrap;
+		width: 100%;
+	}
+
+	.grid .buttonsList a {
+		width: 32%;
+	}
+}
