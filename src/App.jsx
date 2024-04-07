@@ -7,10 +7,13 @@ import {
 
 /* Component */
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 /* Routes Component */
 import Home from "./pages/Home";
 import BackgroundColor from "./pages/BackgroundColor";
+import LinearGradient from "./pages/LinearGradient";
+import RadialGradient from "./pages/RadialGradient";
 
 const App = () => {
 	const router = createBrowserRouter(
@@ -24,13 +27,22 @@ const App = () => {
 					path="Background Color"
 					element={<BackgroundColor />}
 				/>
+				<Route
+					path="Linear Gradient"
+					element={<LinearGradient />}
+				/>
+				<Route
+					path="Radial Gradient"
+					element={<RadialGradient />}
+				/>
 			</>
 		)
 	);
 	return (
 		<section>
-		<Header />
+			<Header />
 			<RouterProvider router={router} />
+			<Footer />
 		</section>
 	);
 };

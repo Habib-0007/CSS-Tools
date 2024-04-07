@@ -1,21 +1,29 @@
-import styles from "../styles/BackgroundColor.module.css";
+import styles from "../styles/Gradient.module.css";
 import {
 	useState,
 	useRef,
 } from "react";
 import copyText from "../components/copyText";
 
-const BackgroundColor = () => {
-	const [red, setRed] = useState("24");
-	const [green, setGreen] =
-		useState("24");
-	const [blue, setBlue] =
-		useState("24");
-	const [alpha, setAlpha] =
-		useState("0.78");
+const LinearGradient = () => {
+	const [colorOne, setColorOne] =
+		useState("#46ff32");
+	const [
+		colorOnePercent,
+		setColorOnePercent,
+	] = useState("30");
+	const [colorTwo, setColorTwo] =
+		useState("#0076ff");
+	const [
+		colorTwoPercent,
+		setColorTwoPercent,
+	] = useState("20");
+	const [angle, setAngle] =
+		useState("90");
 	const [isCopied, setIsCopied] =
 		useState(false);
-	var bgColor = `rgba(${red}, ${green}, ${blue}, ${alpha})`;
+	var bgColor = `linear-gradient(${angle}deg, ${colorOne} ${colorOnePercent}%,
+	${colorTwo} ${colorTwoPercent}%)`;
 	var code = useRef(null);
 	return (
 		<section className={styles.grid}>
@@ -27,7 +35,7 @@ const BackgroundColor = () => {
 						styles.background_area
 					}
 				>
-					<h1>Background Color</h1>
+					<h1>Linear Gradient</h1>
 					<section
 						className={styles.code_box}
 					>
@@ -42,7 +50,7 @@ const BackgroundColor = () => {
 										color: "#F92672",
 									}}
 								>
-									background-color
+									background
 								</span>
 								:{" "}
 								<span
@@ -85,67 +93,72 @@ const BackgroundColor = () => {
 						></div>
 					</section>
 					<section
-						className={styles.sliders}
+						className={styles.controls}
 					>
 						<strong>Controls</strong>
 						<div>
-							<label>R (0 - 255)</label>
+							<input
+								type="text"
+								placeholder="Color One"
+								value={colorOne}
+								onChange={event => {
+									setColorOne(
+										event.target.value
+									);
+								}}
+							/>
+							<input
+								type="number"
+								placeholder="%"
+								value={colorOnePercent}
+								onChange={event => {
+									setColorOnePercent(
+										event.target.value
+									);
+								}}
+							/>
+						</div>
+						<div>
+							<input
+								type="text"
+								placeholder="Color Two"
+								value={colorTwo}
+								onChange={event => {
+									setColorTwo(
+										event.target.value
+									);
+								}}
+							/>
+							<input
+								type="number"
+								placeholder="%"
+								value={colorTwoPercent}
+								onChange={event => {
+									setColorTwoPercent(
+										event.target.value
+									);
+								}}
+							/>
+						</div>
+						<div>
+							<strong
+								style={{
+									paddingBottom: "20px",
+								}}
+							>
+								Angle
+							</strong>
 							<input
 								type="range"
 								min="0"
-								max="255"
-								value={red}
+								max="360"
+								value={angle}
 								onInput={event => {
-									setRed(
+									setAngle(
 										event.target.value
 									);
 								}}
 								step="1"
-							/>
-						</div>
-						<div>
-							<label>G (0 - 255)</label>
-							<input
-								type="range"
-								min="0"
-								max="255"
-								value={green}
-								onInput={event => {
-									setGreen(
-										event.target.value
-									);
-								}}
-								step="1"
-							/>
-						</div>
-						<div>
-							<label>B (0-255)</label>
-							<input
-								type="range"
-								min="0"
-								max="255"
-								value={blue}
-								onInput={event => {
-									setBlue(
-										event.target.value
-									);
-								}}
-								step="1"
-							/>
-						</div>
-						<div>
-							<label>A (0 - 1)</label>
-							<input
-								type="range"
-								min="0"
-								max="1"
-								value={alpha}
-								onInput={event => {
-									setAlpha(
-										event.target.value
-									);
-								}}
-								step="0.01"
 							/>
 						</div>
 					</section>
@@ -155,4 +168,4 @@ const BackgroundColor = () => {
 	);
 };
 
-export default BackgroundColor;
+export default LinearGradient;

@@ -1,16 +1,14 @@
 const Header = () => {
 	return (
 		<header className="header">
-			<section
-				className="subhead"
-			>
+			<section className="subhead">
 				<section>
 					<h1>CSS Tools</h1>
 					<nav>
-						<a href="/">
+						<a href="https://github.com/habib-0007">
 							<i className="fab fa-github"></i>
 						</a>
-						<a href="/">
+						<a href="https://x.com/habib__001">
 							<i className="fab fa-twitter"></i>
 						</a>
 					</nav>
@@ -20,4 +18,4 @@ const Header = () => {
 	);
 };
 
-export default Header
+export default Header;
