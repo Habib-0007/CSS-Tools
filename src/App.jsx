@@ -9,7 +9,7 @@ import {
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-/* Routes Component */
+/* Routes Pages */
 import Home from "./pages/Home";
 import BackgroundColor from "./pages/BackgroundColor";
 import LinearGradient from "./pages/LinearGradient";
